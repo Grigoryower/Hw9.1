@@ -11,14 +11,15 @@ public class Main {
         Author name = new Author("Гарри", "Гаррисон");{
             System.out.println(name);
 
+
         }
 
-        Book deathworld = new Book(" Неукротимая планета ", 1960);
+        Book deathworld = new Book(" Неукротимая планета ", author, 1960);
         {
             if (deathworld.isAdult()) {
                 System.out.println("Название книги " + deathworld.getName() + deathworld.getAge());
             } else {
-                System.out.println("ERROR");
+                System.out.println("ERROR1");
             }
             deathworld.increaseAge(0);
             System.out.println(deathworld);

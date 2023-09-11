@@ -5,13 +5,20 @@ public class Book {
     private String name;
     private int age;
 
-    public Book (String name, int age) {
+    public Book(String name, Author author, int age) {
         this.name = name;
         this.age = age;
-        this.author = author;}
-    public Author getauthor(){
-        return  this.author;
+        this.author = new Author(author.getName(), author.getSurname());
     }
+
+    {
+    }
+
+
+    public Author getAuthor() {
+        return this.author;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -19,21 +26,22 @@ public class Book {
     public int getAge() {
         return this.age;
     }
-    
+
 
     public boolean isAdult() {
-             return getAge() > 1959;
-         }
-          public String toString() {
-            return "Название  " + this.name + " Дата издания  " + this.age;
-          }
+        return getAge() > 1959;
+    }
+
+    public String toString() {
+        return "Название  " + this.name + " Дата издания  " + this.age;
+    }
+
     public void increaseAge(int increment) {
         if (increment < 0) {
             throw new IllegalArgumentException("Инкремент отрицательный");
         }
         this.age = age + increment;
     }
-
 
 
     public void setAuthor(Author author) {
@@ -43,6 +51,8 @@ public class Book {
     public int hashCode() {
         return java.util.Objects.hash(name);
     }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -50,7 +60,4 @@ public class Book {
         Book book = (Book) o;
         return age == book.age && Objects.equals(author, book.author) && Objects.equals(name, book.name);
     }
-
-
-
 }
